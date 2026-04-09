@@ -238,6 +238,7 @@
             lstOrder.Name = "lstOrder";
             lstOrder.Size = new Size(469, 240);
             lstOrder.TabIndex = 0;
+            lstOrder.SelectedIndexChanged += lstOrder_SelectedIndexChanged;
             // 
             // btnOrder
             // 
