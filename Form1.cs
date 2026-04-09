@@ -47,7 +47,18 @@ namespace BurgerKiosk
                 lstOrder.Items.Add("소스 500원");
             }
 
-            lblTotalCost.Text = "총금액: " + totalCost + "원";
+            if (totalCost == 0)
+            {
+                // 아무것도 선택하지 않았을 때
+                lblTotalCost.ForeColor = Color.Red; // 글자색 빨간색
+                lblTotalCost.Text = "메뉴를 선택해주세요";
+            }
+            else
+            {
+                // 메뉴가 정상적으로 선택되었을 때
+                lblTotalCost.ForeColor = Color.Blue; // 글자색 기본 검정색
+                lblTotalCost.Text = "총금액: " + totalCost.ToString("N0") + "원";
+            }
         }
 
         private void btnInit_Click(object sender, EventArgs e)
