@@ -30,9 +30,9 @@
         {
             lblAppName = new Label();
             grpMenu = new GroupBox();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
+            picChickenBurger = new PictureBox();
+            picBulgogiBurger = new PictureBox();
+            picHamburger = new PictureBox();
             rdoChickenBurger = new RadioButton();
             rdoBulgogiBurger = new RadioButton();
             rdoHamBurger = new RadioButton();
@@ -47,9 +47,9 @@
             btnOrder = new Button();
             btnInit = new Button();
             grpMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picChickenBurger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBulgogiBurger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picHamburger).BeginInit();
             grpOption.SuspendLayout();
             grpOrder.SuspendLayout();
             SuspendLayout();
@@ -67,9 +67,9 @@
             // 
             // grpMenu
             // 
-            grpMenu.Controls.Add(pictureBox3);
-            grpMenu.Controls.Add(pictureBox2);
-            grpMenu.Controls.Add(pictureBox1);
+            grpMenu.Controls.Add(picChickenBurger);
+            grpMenu.Controls.Add(picBulgogiBurger);
+            grpMenu.Controls.Add(picHamburger);
             grpMenu.Controls.Add(rdoChickenBurger);
             grpMenu.Controls.Add(rdoBulgogiBurger);
             grpMenu.Controls.Add(rdoHamBurger);
@@ -81,39 +81,39 @@
             grpMenu.TabStop = false;
             grpMenu.Text = "메뉴선택";
             // 
-            // pictureBox3
+            // picChickenBurger
             // 
-            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox3.Image = Properties.Resources.치킨버거;
-            pictureBox3.Location = new Point(256, 340);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(142, 126);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 5;
-            pictureBox3.TabStop = false;
+            picChickenBurger.BackgroundImageLayout = ImageLayout.Stretch;
+            picChickenBurger.Image = Properties.Resources.치킨버거;
+            picChickenBurger.Location = new Point(256, 340);
+            picChickenBurger.Name = "picChickenBurger";
+            picChickenBurger.Size = new Size(142, 126);
+            picChickenBurger.SizeMode = PictureBoxSizeMode.StretchImage;
+            picChickenBurger.TabIndex = 5;
+            picChickenBurger.TabStop = false;
             // 
-            // pictureBox2
+            // picBulgogiBurger
             // 
-            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Image = Properties.Resources.불고기버거;
-            pictureBox2.Location = new Point(256, 203);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(142, 131);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            picBulgogiBurger.BackgroundImageLayout = ImageLayout.Stretch;
+            picBulgogiBurger.Image = Properties.Resources.불고기버거;
+            picBulgogiBurger.Location = new Point(256, 203);
+            picBulgogiBurger.Name = "picBulgogiBurger";
+            picBulgogiBurger.Size = new Size(142, 131);
+            picBulgogiBurger.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBulgogiBurger.TabIndex = 4;
+            picBulgogiBurger.TabStop = false;
+            picBulgogiBurger.Click += pictureBox2_Click;
             // 
-            // pictureBox1
+            // picHamburger
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Image = Properties.Resources.햄버거;
-            pictureBox1.Location = new Point(256, 75);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(142, 122);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            picHamburger.BackgroundImageLayout = ImageLayout.Stretch;
+            picHamburger.Image = Properties.Resources.햄버거;
+            picHamburger.Location = new Point(256, 75);
+            picHamburger.Name = "picHamburger";
+            picHamburger.Size = new Size(142, 122);
+            picHamburger.SizeMode = PictureBoxSizeMode.StretchImage;
+            picHamburger.TabIndex = 3;
+            picHamburger.TabStop = false;
             // 
             // rdoChickenBurger
             // 
@@ -125,6 +125,7 @@
             rdoChickenBurger.TabIndex = 2;
             rdoChickenBurger.Text = "치킨버거";
             rdoChickenBurger.UseVisualStyleBackColor = true;
+            rdoChickenBurger.CheckedChanged += UpdateOrder;
             // 
             // rdoBulgogiBurger
             // 
@@ -136,6 +137,7 @@
             rdoBulgogiBurger.TabIndex = 1;
             rdoBulgogiBurger.Text = "불고기버거";
             rdoBulgogiBurger.UseVisualStyleBackColor = true;
+            rdoBulgogiBurger.CheckedChanged += UpdateOrder;
             // 
             // rdoHamBurger
             // 
@@ -148,6 +150,7 @@
             rdoHamBurger.TabStop = true;
             rdoHamBurger.Text = "햄버거";
             rdoHamBurger.UseVisualStyleBackColor = true;
+            rdoHamBurger.CheckedChanged += UpdateOrder;
             // 
             // grpOption
             // 
@@ -175,6 +178,7 @@
             chkSauce.TabStop = false;
             chkSauce.Text = "소스 추가";
             chkSauce.UseVisualStyleBackColor = true;
+            chkSauce.CheckedChanged += UpdateOrder;
             // 
             // chkCheese
             // 
@@ -187,6 +191,7 @@
             chkCheese.TabStop = false;
             chkCheese.Text = "치즈 추가";
             chkCheese.UseVisualStyleBackColor = true;
+            chkCheese.CheckedChanged += UpdateOrder;
             // 
             // chkCola
             // 
@@ -199,6 +204,7 @@
             chkCola.TabStop = false;
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
+            chkCola.CheckedChanged += UpdateOrder;
             // 
             // chkPotato
             // 
@@ -210,6 +216,7 @@
             chkPotato.TabIndex = 0;
             chkPotato.Text = "감자튀김";
             chkPotato.UseVisualStyleBackColor = true;
+            chkPotato.CheckedChanged += UpdateOrder;
             // 
             // grpOrder
             // 
@@ -283,9 +290,9 @@
             Name = "Form1";
             grpMenu.ResumeLayout(false);
             grpMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picChickenBurger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBulgogiBurger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picHamburger).EndInit();
             grpOption.ResumeLayout(false);
             grpOption.PerformLayout();
             grpOrder.ResumeLayout(false);
@@ -302,9 +309,9 @@
         private RadioButton rdoBulgogiBurger;
         private RadioButton rdoHamBurger;
         private GroupBox grpOption;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private PictureBox picChickenBurger;
+        private PictureBox picBulgogiBurger;
+        private PictureBox picHamburger;
         private GroupBox grpOrder;
         private Label lblTotalCost;
         private ListBox lstOrder;
